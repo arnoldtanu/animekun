@@ -61,8 +61,10 @@ export const ANIME_DETAIL = (id:number) => {
         large
         medium
         color
-      }
-      description
+      },
+      bannerImage,
+      description (asHtml: true),
+      averageScore
     }
   }`;
 };

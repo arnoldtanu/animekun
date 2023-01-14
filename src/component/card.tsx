@@ -5,7 +5,7 @@ export interface IAnimeCard {
   animeId: number;
   title: string;
   imgUrl: string;
-  popularity: number;
+  popularity?: number;
 }
 
 function AnimeCard(props:IAnimeCard) {
@@ -15,7 +15,7 @@ function AnimeCard(props:IAnimeCard) {
         <Card.Img variant="top" src={props.imgUrl} />
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
-          <Card.Text>{'Popularity: '+props.popularity}</Card.Text>
+          <Card.Text>{props.popularity ? 'Popularity: '+props.popularity : ' '}</Card.Text>
         </Card.Body>
       </Card>
     </Link>
