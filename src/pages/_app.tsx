@@ -5,13 +5,14 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import dynamic from "next/dynamic";
 
 const client = new ApolloClient({
   uri: 'https://graphql.anilist.co',
   cache: new InMemoryCache(),
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps)=>{
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -33,3 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
+
+export default dynamic(() => Promise.resolve(App), {
+  ssr: false,
+});
